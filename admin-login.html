@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Login</title>
+  <link rel="stylesheet" href="admin-login.css" />
+</head>
+<body>
+  <div class="login-container">
+    <h1>Admin Login</h1>
+    <form id="admin-login-form">
+      <!-- Select Category -->
+      <label for="category">Select Category</label>
+      <select id="category" name="category" required>
+        <option value="" disabled selected>Select a category</option>
+        <option value="teacher-feedback">Teacher Feedback</option>
+        <option value="product-review">Product Review</option>
+        <option value="service-evaluation">Service Evaluation</option>
+        <option value="event-feedback">Event Feedback</option>
+        <option value="website-ux">Website/App UX</option>
+        <option value="support-quality">Support Quality</option>
+        <option value="facility-feedback">Facility Feedback</option>
+      </select>
+
+      <!-- Username -->
+      <label for="username">Username</label>
+      <input type="text" id="username" name="username" placeholder="Enter your username" required />
+
+      <!-- Password -->
+      <label for="password">Password</label>
+      <input type="password" id="password" name="password" placeholder="Enter your password" required />
+
+      <!-- Login Button -->
+      <button type="submit" class="login-btn">Login</button>
+    </form>
+    <p class="error-message" id="error-message"></p>
+  </div>
+
+  <script src="admin-login.js"></script>
+</body>
+</html>

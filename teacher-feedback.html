@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Teacher Feedback</title>
+  <link rel="stylesheet" href="teacher-feedback.css" />
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <h1>Teacher Feedback</h1>
+    <p>Help us improve teaching quality by providing your valuable feedback.</p>
+  </header>
+
+  <!-- Feedback Form -->
+  <main>
+    <section class="feedback-form">
+      <form id="teacher-feedback-form">
+        <!-- Personal Information -->
+        <div class="form-section">
+          <h2>Personal Information</h2>
+          <label for="name">Full Name</label>
+          <input type="text" id="name" name="name" placeholder="Enter your full name" required />
+
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="Enter your email" required />
+
+          <label for="class">Class/Grade</label>
+          <input type="text" id="class" name="class" placeholder="Enter your class or grade" required />
+
+          <label for="subject">Subject</label>
+          <input type="text" id="subject" name="subject" placeholder="Enter the subject taught by the teacher" required />
+        </div>
+
+        <!-- Feedback Questions -->
+        <div class="form-section">
+          <h2>Feedback Questions</h2>
+          <label for="teaching-quality">How would you rate the teacher's teaching quality?</label>
+          <select id="teaching-quality" name="teaching-quality" required>
+            <option value="" disabled selected>Select an option</option>
+            <option value="excellent">Excellent</option>
+            <option value="good">Good</option>
+            <option value="average">Average</option>
+            <option value="poor">Poor</option>
+          </select>
+
+          <label for="communication">How effective is the teacher's communication?</label>
+          <select id="communication" name="communication" required>
+            <option value="" disabled selected>Select an option</option>
+            <option value="excellent">Excellent</option>
+            <option value="good">Good</option>
+            <option value="average">Average</option>
+            <option value="poor">Poor</option>
+          </select>
+
+          <label for="engagement">Does the teacher engage students effectively?</label>
+          <select id="engagement" name="engagement" required>
+            <option value="" disabled selected>Select an option</option>
+            <option value="excellent">Excellent</option>
+            <option value="good">Good</option>
+            <option value="average">Average</option>
+            <option value="poor">Poor</option>
+          </select>
+
+          <label for="suggestions">Any suggestions for improvement?</label>
+          <textarea id="suggestions" name="suggestions" placeholder="Write your suggestions here..." rows="4"></textarea>
+        </div>
+
+        <!-- Submit Button -->
+        <button type="submit" class="submit-btn">Submit Feedback</button>
+      </form>
+    </section>
+  </main>
+</body>
+</html>

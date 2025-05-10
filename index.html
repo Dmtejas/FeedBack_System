@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Welcome</title>
+  <link rel="stylesheet" href="welcome.css" />
+</head>
+<body>
+  <div class="welcome-container">
+    <div class="welcome-content">
+      <h1>"Your voice matters."</h1> <!-- Centered Quote -->
+      <p>Welcome to the Feedback System, where your opinions help shape better experiences. Join us to make a difference!</p>
+      <div class="welcome-buttons">
+        <a href="signup.html" class="btn">Sign Up</a>
+        <a href="login.html" class="btn">Login</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Chatbot Section -->
+  <div class="chatbot-container">
+    <button id="chatbot-toggle">💬 Chat with us</button>
+    <div id="chatbot" class="chatbot">
+      <div class="chatbot-header">
+        <h3>Chatbot</h3>
+        <button id="chatbot-close">✖</button>
+      </div>
+      <div class="chatbot-messages">
+        <p>Hello! How can I assist you today?</p>
+      </div>
+      <div class="chatbot-input">
+        <input type="text" id="chatbot-input" placeholder="Type your message..." />
+        <button id="chatbot-send">Send</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="welcome.js"></script>
+</body>
+</html>

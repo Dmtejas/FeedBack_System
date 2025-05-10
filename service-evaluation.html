@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Service Evaluation</title>
+  <link rel="stylesheet" href="service-evaluation.css" />
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <h1>Service Evaluation</h1>
+    <p>Evaluate the quality of services you’ve received and suggest improvements.</p>
+  </header>
+
+  <!-- Feedback Form -->
+  <main>
+    <section class="feedback-form">
+      <form id="service-evaluation-form">
+        <!-- Personal Information -->
+        <div class="form-section">
+          <h2>Personal Information</h2>
+          <label for="name">Full Name</label>
+          <input type="text" id="name" name="name" placeholder="Enter your full name" required />
+
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="Enter your email" required />
+        </div>
+
+        <!-- Feedback Questions -->
+        <div class="form-section">
+          <h2>Feedback Questions</h2>
+          <label for="service-name">Service Name</label>
+          <input type="text" id="service-name" name="service-name" placeholder="Enter the service name" required />
+
+          <label for="satisfaction">How satisfied are you with the service?</label>
+          <select id="satisfaction" name="satisfaction" required>
+            <option value="" disabled selected>Select an option</option>
+            <option value="very-satisfied">Very Satisfied</option>
+            <option value="satisfied">Satisfied</option>
+            <option value="neutral">Neutral</option>
+            <option value="dissatisfied">Dissatisfied</option>
+            <option value="very-dissatisfied">Very Dissatisfied</option>
+          </select>
+
+          <label for="improvements">What improvements would you suggest?</label>
+          <textarea id="improvements" name="improvements" placeholder="Write your suggestions here..." rows="4"></textarea>
+        </div>
+
+        <!-- Submit Button -->
+        <button type="submit" class="submit-btn">Submit Feedback</button>
+      </form>
+    </section>
+  </main>
+</body>
+</html>

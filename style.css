@@ -1,0 +1,407 @@
+/* General Styles */
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f9f9f9;
+  color: #333;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+body.dark {
+  background-color: #181818;
+  color: #e0e0e0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Sidebar */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: -260px;
+  width: 260px;
+  height: 100%;
+  background-color: #1f1f2e;
+  color: white;
+  padding-top: 6rem;
+  transition: all 0.3s ease-in-out;
+  z-index: 1100;
+  overflow-y: auto;
+}
+
+.sidebar.active {
+  left: 0;
+}
+
+.sidebar nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar nav ul li {
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid #333;
+}
+
+.sidebar nav ul li a {
+  color: white;
+  font-size: 1.2rem;
+}
+
+.sidebar nav ul li a:hover {
+  background-color: #333;
+  border-radius: 4px;
+}
+
+#toggle-theme {
+  margin: 1rem;
+  padding: 0.3rem 0.8rem;
+  background-color: #0d6efd;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+#toggle-theme:hover {
+  background-color: #084298;
+}
+
+/* Header */
+header {
+  background-color: #0d6efd;
+  color: white;
+  padding: 1.5rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1200;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2rem;
+}
+
+#hamburger,
+#toggle-theme {
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.search-bar input {
+  padding: 0.5rem 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.search-bar button {
+  background-color: #0d6efd;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.search-bar button:hover {
+  background-color: #084298;
+}
+
+/* Hero Section */
+.hero {
+  background: linear-gradient(to right, #0d6efd, #084298);
+  color: white;
+  padding: 6rem 2rem;
+  text-align: center;
+}
+
+.hero-content h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.hero-content p {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+.cta-btn {
+  background-color: white;
+  color: #0d6efd;
+  padding: 1rem 2rem;
+  border-radius: 6px;
+  font-size: 1.2rem;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.cta-btn:hover {
+  background-color: #0d6efd;
+  color: white;
+}
+
+/* Categories Section */
+#categories {
+  display: none; /* Hide the categories section by default */
+  opacity: 0; /* Start with 0 opacity for animation */
+  transform: translateY(20px); /* Start slightly below its final position */
+  transition: opacity 0.5s ease, transform 0.5s ease; /* Smooth transition for opacity and position */
+}
+
+#categories.visible {
+  display: block; /* Make the section visible */
+  opacity: 1; /* Fully visible */
+  transform: translateY(0); /* Move to its final position */
+}
+
+.category-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  padding: 2rem;
+}
+
+.category-card {
+  background-color: white;
+  border: 1px solid #ddd;
+  padding: 2rem;
+  border-radius: 12px;
+  text-align: center;
+  font-size: 1.2rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.category-card h3 {
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  color: #0d6efd;
+}
+
+.category-card p {
+  margin-bottom: 1.5rem;
+  font-size: 1.1rem;
+  color: #555;
+}
+
+.feedback-btn {
+  background-color: #0d6efd;
+  color: white;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.feedback-btn:hover {
+  background-color: #084298;
+}
+
+/* Testimonials Section */
+.testimonials {
+  background-color: #f4f4f9;
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.testimonials h2 {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  color: #0d6efd;
+}
+
+.testimonial-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.testimonial-card {
+  background-color: white;
+  border: 1px solid #ddd;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  font-size: 1.1rem;
+  color: #555;
+}
+
+.testimonial-card h4 {
+  margin-top: 1rem;
+  font-size: 1.2rem;
+  color: #0d6efd;
+}
+
+/* Footer */
+footer {
+  background-color: #0d6efd;
+  color: white;
+  padding: 2rem;
+  text-align: center;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.footer-links ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-links ul li {
+  margin-bottom: 0.5rem;
+}
+
+.footer-links ul li a {
+  color: white;
+  text-decoration: none;
+}
+
+.footer-links ul li a:hover {
+  text-decoration: underline;
+}
+
+.footer-social .social-icons a {
+  margin-right: 1rem;
+}
+
+.footer-social .social-icons img {
+  width: 24px;
+  height: 24px;
+}
+
+/* Chatbot */
+#chatbot {
+  position: fixed;
+  bottom: 24px;
+  left: 24px;
+  width: 300px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  z-index: 1300;
+}
+
+#chat-header {
+  background-color: #0d6efd;
+  color: white;
+  padding: 0.8rem;
+  font-weight: bold;
+}
+
+#chat-body {
+  flex-grow: 1;
+  padding: 0.8rem;
+  height: 180px;
+  overflow-y: auto;
+  font-size: 0.95rem;
+}
+
+#chat-input {
+  border: none;
+  border-top: 1px solid #ccc;
+  padding: 0.8rem;
+  font-size: 1rem;
+  outline: none;
+}
+
+/* Fix for Toggle Button Visibility */
+header button {
+  flex-shrink: 0; /* Prevent buttons from shrinking */
+}
+
+/* Dark Theme */
+body.dark {
+  background-color: #181818;
+  color: #e0e0e0;
+}
+
+body.dark .sidebar {
+  background-color: #121212;
+}
+
+body.dark .category-card {
+  background-color: #262626;
+  color: white;
+  border-color: #444;
+}
+
+body.dark #chatbot {
+  background-color: #222;
+  color: #eee;
+}
+
+body.dark #chat-header {
+  background-color: #333;
+}
+
+body.dark #chat-input {
+  background-color: #2a2a2a;
+  color: white;
+  border-top: 1px solid #444;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hero-content h1 {
+    font-size: 2rem;
+  }
+
+  .hero-content p {
+    font-size: 1rem;
+  }
+
+  .categories h2 {
+    font-size: 2rem;
+  }
+
+  .category-card h3 {
+    font-size: 1.3rem;
+  }
+
+  .category-card p {
+    font-size: 1rem;
+  }
+
+  .feedback-btn {
+    font-size: 0.9rem;
+  }
+
+  #chatbot {
+    width: 90%;
+    left: 5%;
+  }
+}

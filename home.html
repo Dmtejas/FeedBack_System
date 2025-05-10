@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Feedback System</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Sidebar -->
+  <div class="sidebar" id="sidebar">
+    <nav>
+      <ul>
+        <li><a href="feedback.html">Feedback</a></li>
+        <li><a href="statistics.html">Statistics</a></li>
+        <li><a href="admin-login.html">Admin Login</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="help.html">Help</a></li>
+      </ul>
+    </nav>
+    <button id="toggle-theme">🌓 Toggle Theme</button>
+  </div>
+
+  <!-- Header -->
+  <header>
+    <button id="hamburger">☰</button>
+    <h1 id="dynamic-quote">"Speak your mind, improve the world."</h1> <!-- Dynamic quote will replace this -->
+    <div class="search-bar">
+      <input type="text" placeholder="Search feedback categories..." id="search-input" />
+      <button id="search-btn">🔍</button>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Welcome to the Feedback System</h1>
+      <p>
+        Your voice matters! Share your feedback to help improve services, products, and experiences.
+      </p>
+      <a href="#categories" class="cta-btn">Explore Categories</a>
+    </div>
+  </section>
+
+  <!-- Categories Section -->
+  <section class="categories" id="categories">
+    <div class="category-grid">
+      <!-- Teacher Feedback -->
+      <div class="category-card">
+        <h3>Teacher Feedback</h3>
+        <p>Help teachers improve their teaching methods and classroom experience.</p>
+        <a href="teacher-feedback.html" class="feedback-btn">Give Feedback</a>
+      </div>
+
+      <!-- Product Review -->
+      <div class="category-card">
+        <h3>Product Review</h3>
+        <p>Share your thoughts on products you've used to help others make informed decisions.</p>
+        <a href="product-review.html" class="feedback-btn">Give Feedback</a>
+      </div>
+
+      <!-- Service Evaluation -->
+      <div class="category-card">
+        <h3>Service Evaluation</h3>
+        <p>Evaluate the quality of services you’ve received and suggest improvements.</p>
+        <a href="service-evaluation.html" class="feedback-btn">Give Feedback</a>
+      </div>
+
+      <!-- Event Feedback -->
+      <div class="category-card">
+        <h3>Event Feedback</h3>
+        <p>Provide feedback on events to help organizers improve future experiences.</p>
+        <a href="event-feedback.html" class="feedback-btn">Give Feedback</a>
+      </div>
+
+      <!-- Website/App UX -->
+      <div class="category-card">
+        <h3>Website/App UX</h3>
+        <p>Share your experience with websites or apps to improve user interfaces and usability.</p>
+        <a href="website-ux-feedback.html" class="feedback-btn">Give Feedback</a>
+      </div>
+
+      <!-- Support Quality -->
+      <div class="category-card">
+        <h3>Support Quality</h3>
+        <p>Rate the quality of customer support you’ve received and suggest improvements.</p>
+        <a href="support-quality-feedback.html" class="feedback-btn">Give Feedback</a>
+      </div>
+
+      <!-- Facility Feedback -->
+      <div class="category-card">
+        <h3>Facility Feedback</h3>
+        <p>Provide feedback on facilities like gyms, libraries, or offices to improve their services.</p>
+        <a href="facility-feedback.html" class="feedback-btn">Give Feedback</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section class="testimonials">
+    <h2>What Our Users Say</h2>
+    <div class="testimonial-grid">
+      <div class="testimonial-card">
+        <p>"This platform has made it so easy to share my feedback. Highly recommended!"</p>
+        <h4>- John Doe</h4>
+      </div>
+      <div class="testimonial-card">
+        <p>"I love how intuitive and user-friendly this system is. Great job!"</p>
+        <h4>- Jane Smith</h4>
+      </div>
+      <div class="testimonial-card">
+        <p>"The actionable insights from feedback have helped us improve significantly."</p>
+        <h4>- Mark Wilson</h4>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-links">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="help.html">Help</a></li>
+          <li><a href="privacy.html">Privacy Policy</a></li>
+        </ul>
+      </div>
+      <div class="footer-social">
+        <h3>Follow Us</h3>
+        <div class="social-icons">
+          <a href="#"><img src="icons/facebook.svg" alt="Facebook" /></a>
+          <a href="#"><img src="icons/twitter.svg" alt="Twitter" /></a>
+          <a href="#"><img src="icons/instagram.svg" alt="Instagram" /></a>
+        </div>
+      </div>
+    </div>
+    <p>&copy; 2025 Feedback System. All rights reserved.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
