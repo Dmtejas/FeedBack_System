@@ -1,51 +1,104 @@
 # Feedback System
 
-Welcome to the **Feedback System**! This project is designed to collect and manage feedback from users across various categories, providing a platform for improvement and better experiences.
+A modern, full-stack feedback platform for collecting, analyzing, and visualizing feedback across multiple categories (Teacher, Product, Service, Event). Features include sentiment analysis, admin dashboard with charts, authentication, and a user-friendly interface.
+
+---
 
 ## Features
 
-- **Welcome Page**: A minimal and user-friendly landing page with a motivational quote and navigation options.
-- **Sign-Up and Login**: Secure user authentication with persistent storage using `localStorage`.
-- **Category-Based Feedback**: Feedback forms tailored to specific categories like Teacher Feedback, Product Review, Service Evaluation, and more.
-- **Admin Login**: Category-specific admin authentication to manage feedback.
-- **Chatbot Integration**: A simple chatbot to assist users with queries.
-- **Responsive Design**: Fully responsive and works seamlessly on desktop and mobile devices.
+- **Multi-category Feedback:** Collects feedback for teachers, products, services, and events.
+- **Sentiment Analysis:** Automatically analyzes and displays sentiment of user comments.
+- **Admin Dashboard:** Visualizes feedback with pie charts, trend lines, and statistics.
+- **Authentication:** Secure login and signup for users and admins.
+- **Responsive UI:** Clean, modern design with chatbot support.
+- **Data Export:** (Optional) Export feedback for offline analysis.
 
-## Pages
+---
 
-1. **Welcome Page (`index.html`)**:
-   - A minimal landing page with a quote, description, and navigation buttons for Sign-Up and Login.
-   - Includes a chatbot for user assistance.
+## Tech Stack
 
-2. **Home Page (`home.html`)**:
-   - The main dashboard for users after logging in.
-   - Provides access to feedback categories, statistics, and other features.
+- **Frontend:** HTML, CSS (custom, Chart.js), JavaScript
+- **Backend:** Node.js, Express, Mongoose, Sentiment
+- **Database:** MongoDB
 
-3. **Sign-Up Page (`signup.html`)**:
-   - Allows users to register with their name, email, and password.
-   - Validates input and stores user data securely in `localStorage`.
+---
 
-4. **Login Page (`login.html`)**:
-   - Authenticates users with their email and password.
-   - Redirects to the home page upon successful login.
+## Getting Started
 
-5. **Admin Login Page (`admin-login.html`)**:
-   - Category-specific admin authentication.
-   - Redirects to category-specific dashboards for managing feedback.
+### 1. Clone the repository
 
-6. **Feedback Forms**:
-   - Separate feedback forms for each category (e.g., Teacher Feedback, Product Review).
-   - Each form is styled and scoped to its respective category.
+```sh
+git clone https://github.com/yourusername/feedback-system.git
+cd feedback-system
+```
 
-## Technologies Used
+### 2. Install dependencies
 
-- **HTML5**: For structuring the web pages.
-- **CSS3**: For styling and responsive design.
-- **JavaScript**: For interactivity, authentication, and chatbot functionality.
-- **LocalStorage**: For persistent storage of user data.
+```sh
+npm install
+```
 
-## How to Run the Project
+### 3. Set up environment variables
 
-1. Clone the repository to your local machine:
-   ```bash
-   git clone <repository-url>
+Create a `.env` file in the `backend` directory with your MongoDB URI and any secrets:
+
+```
+MONGODB_URI=your_mongodb_connection_string
+JWT_SECRET=your_jwt_secret
+```
+
+### 4. Start the backend server
+
+```sh
+cd backend
+node server.js
+```
+
+### 5. Open the frontend
+
+Open `frontend/index.html` in your browser, or serve the frontend via the backend server (recommended for full functionality):
+
+```
+http://localhost:5000/
+```
+
+---
+
+## Project Structure
+
+```
+backend/
+  models/
+  routes/
+  server.js
+  .env
+frontend/
+  index.html
+  home.html
+  login.html
+  signup.html
+  admin-dashboard.html
+  style.css
+  welcome.css
+  script.js
+.gitignore
+README.md
+```
+
+---
+
+## Customization
+
+- **Change background images** in `welcome.css` for a different look.
+- **Add more feedback categories** by updating models and routes.
+- **Enhance analytics** in the dashboard as needed.
+
+---
+
+## License
+
+MIT
+
+---
+
+**Made with ❤️ for better feedback and continuous improvement!**
