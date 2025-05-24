@@ -1,16 +1,22 @@
 /* General Styles */
 body {
-  font-family: 'Arial', sans-serif;
+  min-height: 100vh;
   margin: 0;
   padding: 0;
-  background-color: #f9f9f9;
-  color: #333;
-  transition: background-color 0.3s, color 0.3s;
+  font-family: 'Book Antiqua', Palatino, serif;
+  /* Unique, professional gradient background */
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  /* Optional: add a subtle pattern overlay */
+  background-image:
+    linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%),
+    url('https://www.transparenttextures.com/patterns/cubes.png');
+  background-blend-mode: overlay;
+  color: #222;
 }
 
-body.dark {
-  background-color: #181818;
-  color: #e0e0e0;
+body.dark-theme {
+  background: linear-gradient(135deg, #232526 0%, #414345 100%);
+  color: #f1f1f1;
 }
 
 a {
@@ -59,18 +65,25 @@ a {
 }
 
 #toggle-theme {
-  margin: 1rem;
-  padding: 0.3rem 0.8rem;
-  background-color: #0d6efd;
-  color: white;
+  margin: 1.5rem auto 0 auto;
+  display: block;
+  background: linear-gradient(135deg, #0d6efd 60%, #6c63ff 100%);
+  color: #fff;
   border: none;
-  border-radius: 4px;
+  border-radius: 25px;
+  padding: 0.7rem 2rem;
+  font-size: 1rem;
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-weight: 700;
   cursor: pointer;
-  font-size: 0.9rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  transition: background 0.3s, color 0.3s, transform 0.2s;
 }
 
 #toggle-theme:hover {
-  background-color: #084298;
+  background: linear-gradient(135deg, #6c63ff 60%, #0d6efd 100%);
+  color: #fff;
+  transform: translateY(-2px) scale(1.04);
 }
 
 /* Header */
@@ -137,6 +150,9 @@ header h1 {
 }
 
 .hero-content h1 {
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-weight: 700;
+  letter-spacing: 1px;
   font-size: 3rem;
   margin-bottom: 1rem;
 }
@@ -165,16 +181,22 @@ header h1 {
 
 /* Categories Section */
 #categories {
-  display: none; /* Hide the categories section by default */
-  opacity: 0; /* Start with 0 opacity for animation */
-  transform: translateY(20px); /* Start slightly below its final position */
-  transition: opacity 0.5s ease, transform 0.5s ease; /* Smooth transition for opacity and position */
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  pointer-events: none;
+  transform: translateY(40px);
+  transition:
+    opacity 0.6s cubic-bezier(.4,0,.2,1),
+    max-height 0.6s cubic-bezier(.4,0,.2,1),
+    transform 0.6s cubic-bezier(.4,0,.2,1);
 }
 
 #categories.visible {
-  display: block; /* Make the section visible */
-  opacity: 1; /* Fully visible */
-  transform: translateY(0); /* Move to its final position */
+  opacity: 1;
+  max-height: 2000px; /* Large enough for your content */
+  pointer-events: auto;
+  transform: translateY(0);
 }
 
 .category-grid {
@@ -374,6 +396,220 @@ body.dark #chat-input {
   border-top: 1px solid #444;
 }
 
+/* --- DARK THEME OVERRIDES --- */
+body.dark-theme {
+  background: linear-gradient(135deg, #232526 0%, #414345 100%);
+  color: #f1f1f1;
+}
+
+body.dark-theme .sidebar {
+  background: #18191a;
+  color: #f1f1f1;
+}
+
+body.dark-theme .sidebar a {
+  color: #f1f1f1;
+}
+
+body.dark-theme .sidebar a:hover {
+  color: #0d6efd;
+}
+
+body.dark-theme header {
+  background: #232526;
+  color: #f1f1f1;
+}
+
+body.dark-theme .hero-content {
+  background: rgba(30, 30, 40, 0.95);
+  color: #f1f1f1;
+}
+
+body.dark-theme .category-card {
+  background: #232526;
+  color: #f1f1f1;
+  border-color: #333;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+}
+
+body.dark-theme .feedback-btn,
+body.dark-theme .cta-btn {
+  background: #232526;
+  color: #fff;
+  border: 1px solid #0d6efd;
+}
+
+body.dark-theme .feedback-btn:hover,
+body.dark-theme .cta-btn:hover {
+  background: #0d6efd;
+  color: #fff;
+}
+
+body.dark-theme .testimonials {
+  background: #18191a;
+  color: #f1f1f1;
+}
+
+body.dark-theme .testimonial-card {
+  background: #232526;
+  color: #f1f1f1;
+  border-color: #333;
+}
+
+body.dark-theme .footer-content,
+body.dark-theme footer {
+  background: #18191a;
+  color: #f1f1f1;
+}
+
+body.dark-theme .footer-links a {
+  color: #f1f1f1;
+}
+
+body.dark-theme .footer-links a:hover {
+  color: #0d6efd;
+}
+
+body.dark-theme #toggle-theme {
+  background: linear-gradient(135deg, #6c63ff 60%, #0d6efd 100%);
+  color: #fff;
+}
+
+body.dark-theme .search-bar input {
+  background: #232526;
+  color: #f1f1f1;
+  border: 1px solid #444;
+}
+
+body.dark-theme .search-bar button {
+  background: #0d6efd;
+  color: #fff;
+}
+
+body.dark-theme .chatbot {
+  background: #232526;
+  color: #f1f1f1;
+}
+
+body.dark-theme .chatbot-header {
+  background: #0d6efd;
+  color: #fff;
+}
+
+body.dark-theme .chatbot-input input {
+  background: #18191a;
+  color: #f1f1f1;
+  border: 1px solid #333;
+}
+
+body.dark-theme .chatbot-input button {
+  background: #0d6efd;
+  color: #fff;
+}
+
+/* Body and UI font */
+body {
+  font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+}
+
+/* Headings: Use Poppins for a modern, bold look */
+h1, h2, h3, h4 {
+  font-family: 'Poppins', 'Montserrat', Arial, Helvetica, sans-serif;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+/* Welcome text (e.g., hero section main heading): Use Pacifico for a unique, friendly style */
+.hero-content h1,
+.welcome-content h1 {
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: 3rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+/* Dashboard Styles */
+.dashboard-container {
+  max-width: 1200px; /* Increased width */
+  margin: 2rem auto;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+  padding: 2rem 2.5rem;
+  text-align: center;
+}
+
+.dashboard-container h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  color: #4e73df;
+  letter-spacing: 1px;
+}
+
+.dashboard-stats {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.stat-card {
+  background: #f8f9fc;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(78,115,223,0.07);
+  padding: 1.5rem 2rem;
+  min-width: 180px;
+  margin-bottom: 1rem;
+}
+
+.stat-card span {
+  display: block;
+  font-size: 2rem;
+  font-weight: bold;
+  color: #1cc88a;
+  margin-top: 0.5rem;
+}
+
+#pieChart {
+  margin: 2rem auto 1rem auto;
+  display: block;
+  max-width: 400px;
+}
+
+#pieCharts canvas {
+  max-width: 180px;
+  max-height: 180px;
+}
+
+.recent-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 2rem;
+}
+
+.recent-table td, .recent-table th {
+  max-width: 300px; /* Increased cell width */
+  word-break: break-word;
+  white-space: pre-line;
+}
+
+.recent-table th, .recent-table td {
+  border: 1px solid #e3e6f0;
+  padding: 0.75rem 1rem;
+  text-align: center;
+}
+
+.recent-table th {
+  background: #f6f8fa;
+  color: #4e73df;
+  font-weight: 600;
+}
+
+.recent-table tr:nth-child(even) {
+  background: #f8f9fc;
+}
+
 /* Responsive */
 @media (max-width: 768px) {
   .hero-content h1 {
@@ -404,4 +640,9 @@ body.dark #chat-input {
     width: 90%;
     left: 5%;
   }
+}
+
+h1, h2, h3, h4, h5, h6,
+button, .cta-btn, .feedback-btn, .stat-card, .testimonial-card {
+  font-family: 'Book Antiqua', Palatino, serif !important;
 }

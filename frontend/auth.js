@@ -65,7 +65,6 @@ if (loginForm) {
     // Validate credentials
     const user = users.find((user) => user.email === email && user.password === password);
     if (user) {
-      alert(`Welcome, ${user.name}!`);
       window.location.href = 'home.html'; // Redirect to the main page
     } else {
       loginErrorMessage.textContent = 'Invalid email or password.';

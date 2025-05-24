@@ -1,33 +1,45 @@
 /* General Styles */
 body {
+  min-height: 100vh;
   margin: 0;
   padding: 0;
-  font-family: 'Arial', sans-serif;
-  height: 100vh;
   display: flex;
-  justify-content: center;
   align-items: center;
-  background: url('background.jpg') no-repeat center center/cover; /* Replace 'background.jpg' with your image */
-  color: white;
+  justify-content: center;
+  background: url('https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1500&q=80') no-repeat center center fixed;
+  background-size: cover;
+  font-family: 'Book Antiqua', Palatino, serif;
 }
 
 .welcome-container {
+  background: linear-gradient(135deg, rgba(255,255,255,0.96) 60%, rgba(240,240,240,0.92) 100%);
+  border-radius: 18px;
+  max-width: 800px; /* Increased width */
+  width: 100%;
+  min-height: 500px; /* Increased height */
+  box-shadow: 0 8px 32px rgba(0,0,0,0.18);
   text-align: center;
-  background: rgba(0, 0, 0, 0.6); /* Semi-transparent background for better readability */
-  padding: 2rem;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  padding: 4rem 3rem; /* Increased padding */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* Optional: add a subtle border for extra pop */
+  border: 1.5px solid rgba(78,115,223,0.10);
+  font-family: 'Book Antiqua', Palatino, serif;
 }
 
 .welcome-content h1 {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
-  font-style: italic;
+  color: #222;
+  font-size: 3rem; /* Bigger heading */
+  font-family: 'Book Antiqua', Palatino, serif;
+  margin-bottom: 2rem;
 }
 
 .welcome-content p {
-  font-size: 1.2rem;
-  margin-bottom: 2rem;
+  color: #444;
+  font-size: 1.5rem; /* Bigger paragraph */
+  font-family: 'Book Antiqua', Palatino, serif;
+  margin-bottom: 2.5rem;
 }
 
 .welcome-buttons {
@@ -37,17 +49,21 @@ body {
 }
 
 .welcome-buttons .btn {
+  background: #4e73df;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 1.2rem 2.5rem; /* Bigger buttons */
+  margin: 0 1rem;
+  font-size: 1.3rem;
+  cursor: pointer;
   text-decoration: none;
-  color: white;
-  background-color: #0d6efd;
-  padding: 0.8rem 1.5rem;
-  border-radius: 5px;
-  font-size: 1rem;
-  transition: background-color 0.3s ease;
+  transition: background 0.2s;
+  font-family: 'Book Antiqua', Palatino, serif;
 }
 
 .welcome-buttons .btn:hover {
-  background-color: #084298;
+  background: #375ab7;
 }
 
 /* Chatbot Styles */

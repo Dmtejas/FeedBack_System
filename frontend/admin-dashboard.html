@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Dashboard</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="dashboard-container">
+    <h1>Admin Dashboard</h1>
+    <div id="stats" class="dashboard-stats"></div>
+    <div id="pieCharts" style="display:flex;justify-content:center;gap:1.2rem;flex-wrap:wrap;margin-bottom:2rem;">
+      <canvas id="pieChart1" width="180" height="180"></canvas>
+      <canvas id="pieChart2" width="180" height="180"></canvas>
+      <canvas id="pieChart3" width="180" height="180"></canvas>
+    </div>
+    <div id="details"></div>
+    <div style="margin:2rem 0;">
+      <h3>Sentiment Trend (Last 10 Feedbacks)</h3>
+      <canvas id="sentimentTrendChart" width="600" height="200"></canvas>
+    </div>
+  </div>
+  <!-- Chart.js CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script>
+    // Get token from localStorage
+    const token = localStorage.getItem('adminToken');
+    if (!token) {
+      alert('Not authorized');
+      window.location.href = 'admin-login.html';
+    }
+
+    fetch('/api/admin/dashboard-category', {
+      headers: { Authorization: 'Bearer ' + token }
+    })
+      .then(res => res.json())
+      .then(stats => {
+        // Stat cards
+        const statsDiv = document.getElementById('stats');
+        let statCards = `
+          <div class="stat-card">
+            <div>Total Feedbacks</div>
+            <span>${stats.count}</span>
+          </div>
+        `;
+        if (stats.avg && Object.keys(stats.avg).length) {
+          statCards += Object.entries(stats.avg).map(([q, v]) =>
+            `<div class="stat-card">
+              <div>Avg ${q.replace(/([A-Z])/g, ' $1')}</div>
+              <span>${v ? v.toFixed(2) : 'N/A'}</span>
+            </div>`
+          ).join('');
+        }
+        // Add sentiment stat card
+        statCards += `
+          <div class="stat-card">
+            <div>Avg Sentiment</div>
+            <span style="color:${stats.avgSentiment > 0 ? '#1cc88a' : stats.avgSentiment < 0 ? '#e74a3b' : '#858796'}">
+              ${stats.avgSentiment.toFixed(2)}
+            </span>
+          </div>
+        `;
+        statsDiv.innerHTML = statCards;
+
+        // Pie charts for each distribution
+        const distKeys = Object.keys(stats.dist);
+        const questionLabels = {
+          teachingQuality: 'Teaching Quality',
+          communication: 'Communication',
+          engagement: 'Engagement',
+          rating: 'Rating',
+          recommend: 'Recommend',
+          satisfaction: 'Satisfaction'
+        };
+        distKeys.forEach((key, idx) => {
+          if (idx > 2) return; // Only up to 3 pie charts
+          const dist = stats.dist[key];
+          const labels = Object.keys(dist).map(l => l.charAt(0).toUpperCase() + l.slice(1).replace('-', ' '));
+          const data = Object.values(dist);
+          const ctx = document.getElementById('pieChart' + (idx + 1)).getContext('2d');
+          new Chart(ctx, {
+            type: 'pie',
+            data: {
+              labels,
+              datasets: [{
+                label: questionLabels[key] || key,
+                data,
+                backgroundColor: [
+                  '#4e73df', '#1cc88a', '#36b9cc', '#f6c23e', '#e74a3b', '#858796'
+                ]
+              }]
+            },
+            options: {
+              responsive: true,
+              plugins: {
+                legend: { display: true }
+              }
+            }
+          });
+        });
+
+        // Details: Distribution breakdown and recent feedbacks
+        let detailsHTML = distKeys.map((key, idx) => `
+          <h3>Distribution for ${questionLabels[key] || key.replace(/([A-Z])/g, ' $1')}</h3>
+          <ul style="display:flex;justify-content:center;gap:2rem;list-style:none;padding:0;">
+            ${Object.keys(stats.dist[key]).map((l) => `<li><b>${l.charAt(0).toUpperCase() + l.slice(1).replace('-', ' ')}:</b> ${stats.dist[key][l]}</li>`).join('')}
+          </ul>
+        `).join('');
+        detailsHTML += `
+          <h3 style="margin-top:2rem;">Recent Feedbacks</h3>
+          <table class="recent-table">
+            <thead>
+              <tr>
+                ${Object.keys(stats.feedbacks[0] || {}).filter(k => k !== '_id' && k !== '__v').map(k => `<th>${k.replace(/([A-Z])/g, ' $1')}</th>`).join('')}
+                <th>Sentiment</th>
+              </tr>
+            </thead>
+            <tbody>
+              ${stats.feedbacks.map(fb =>
+                `<tr>${
+                  Object.keys(fb).filter(k => k !== '_id' && k !== '__v').map(k =>
+                    k === 'createdAt'
+                      ? `<td>${new Date(fb[k]).toLocaleString('en-GB', { year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit' })}</td>`
+                      : `<td>${fb[k]}</td>`
+                  ).join('')
+                }<td>${
+                  fb.suggestionSentiment ?? fb.commentSentiment ?? fb.improvementSentiment ?? ''
+                }</td></tr>`
+              ).join('')}
+            </tbody>
+          </table>
+        `;
+        document.getElementById('details').innerHTML = detailsHTML;
+
+        // Sentiment Trend Line Chart
+        const trendCtx = document.getElementById('sentimentTrendChart').getContext('2d');
+        new Chart(trendCtx, {
+          type: 'line',
+          data: {
+            labels: stats.sentimentTrendLabels,
+            datasets: [{
+              label: 'Sentiment Score',
+              data: stats.sentimentTrend,
+              borderColor: '#4e73df',
+              backgroundColor: 'rgba(78,115,223,0.1)',
+              fill: true,
+              tension: 0.3,
+              pointRadius: 4,
+              pointBackgroundColor: '#4e73df'
+            }]
+          },
+          options: {
+            responsive: true,
+            scales: {
+              y: {
+                beginAtZero: true,
+                suggestedMin: -5,
+                suggestedMax: 5,
+                title: { display: true, text: 'Sentiment Score' }
+              }
+            }
+          }
+        });
+      });
+  </script>
+</body>
+</html>

@@ -3,20 +3,20 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Product Review</title>
-  <link rel="stylesheet" href="product-review.css" />
+  <title>Event Feedback</title>
+  <link rel="stylesheet" href="event-feedback.css" />
 </head>
 <body>
   <!-- Header -->
   <header>
-    <h1>Product Review</h1>
-    <p>Share your thoughts on products you've used to help others make informed decisions.</p>
+    <h1>Event Feedback</h1>
+    <p>Provide feedback on events to help organizers improve future experiences.</p>
   </header>
 
   <!-- Feedback Form -->
   <main>
     <section class="feedback-form">
-      <form id="product-review-form">
+      <form id="event-feedback-form">
         <!-- Personal Information -->
         <div class="form-section">
           <h2>Personal Information</h2>
@@ -30,23 +30,16 @@
         <!-- Feedback Questions -->
         <div class="form-section">
           <h2>Feedback Questions</h2>
-          <label for="product-name">Product Name</label>
-          <input type="text" id="product-name" name="product-name" placeholder="Enter the product name" required />
+          <label for="event-name">Event Name</label>
+          <input type="text" id="event-name" name="event-name" placeholder="Enter the event name" required />
 
-          <label for="rating">How would you rate the product?</label>
+          <label for="rating">How would you rate the event?</label>
           <select id="rating" name="rating" required>
             <option value="" disabled selected>Select an option</option>
             <option value="excellent">Excellent</option>
             <option value="good">Good</option>
             <option value="average">Average</option>
             <option value="poor">Poor</option>
-          </select>
-
-          <label for="recommend">Would you recommend this product to others?</label>
-          <select id="recommend" name="recommend" required>
-            <option value="" disabled selected>Select an option</option>
-            <option value="yes">Yes</option>
-            <option value="no">No</option>
           </select>
 
           <label for="comments">Additional Comments</label>
@@ -58,5 +51,6 @@
       </form>
     </section>
   </main>
+  <script src="script.js"></script>
 </body>
 </html>
