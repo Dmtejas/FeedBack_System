@@ -18,7 +18,7 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, '../frontend/index.html'));
 });
 
-mongoose.connect('mongodb://Tejas:tejasgowda%402006@localhost:27017/feedback-system?authSource=admin', {
+mongoose.connect('mongodb+srv://root:root123@cluster0.awyzndh.mongodb.net/feedback-system', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 })
