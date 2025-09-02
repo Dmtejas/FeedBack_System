@@ -53,9 +53,18 @@ const categoriesSection = document.getElementById('categories');
 
 exploreCategoriesBtn?.addEventListener('click', (e) => {
   e.preventDefault(); // Prevent default anchor behavior
-  categoriesSection.classList.add('visible'); // Only show categories with animation
-  // categoriesSection.scrollIntoView({ behavior: 'smooth' });
+
+  if (categoriesSection.classList.contains('visible')) {
+    // Already open → close it
+    categoriesSection.classList.remove('visible');
+    //categoriesSection.scrollIntoView({ behavior: 'smooth' });
+  } else {
+    // Not open → open it
+    categoriesSection.classList.add('visible');
+    //categoriesSection.scrollIntoView({ behavior: 'smooth' });
+  }
 });
+
 
 // --- UNIVERSAL FEEDBACK FORM HANDLER FOR ALL CATEGORIES ---
 

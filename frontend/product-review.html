@@ -7,17 +7,15 @@
   <link rel="stylesheet" href="product-review.css" />
 </head>
 <body>
-  <!-- Header -->
   <header>
-    <h1>Product Review</h1>
-    <p>Share your thoughts on products you've used to help others make informed decisions.</p>
+    <h1>Canteen Food Review</h1>
+    <p>Share your thoughts on Canteen to help others make informed decisions.</p>
   </header>
 
-  <!-- Feedback Form -->
   <main>
     <section class="feedback-form">
       <form id="product-review-form">
-        <!-- Personal Information -->
+       
         <div class="form-section">
           <h2>Personal Information</h2>
           <label for="name">Full Name</label>
@@ -27,13 +25,13 @@
           <input type="email" id="email" name="email" placeholder="Enter your email" required />
         </div>
 
-        <!-- Feedback Questions -->
+        
         <div class="form-section">
           <h2>Feedback Questions</h2>
-          <label for="product-name">Product Name</label>
-          <input type="text" id="product-name" name="product-name" placeholder="Enter the product name" required />
+          <label for="product-name">Food Name</label>
+          <input type="text" id="product-name" name="product-name" placeholder="Enter the Food name" required />
 
-          <label for="rating">How would you rate the product?</label>
+          <label for="rating">How would you rate the Food?</label>
           <select id="rating" name="rating" required>
             <option value="" disabled selected>Select an option</option>
             <option value="excellent">Excellent</option>
@@ -53,7 +51,6 @@
           <textarea id="comments" name="comments" placeholder="Write your comments here..." rows="4"></textarea>
         </div>
 
-        <!-- Submit Button -->
         <button type="submit" class="submit-btn">Submit Feedback</button>
       </form>
     </section>

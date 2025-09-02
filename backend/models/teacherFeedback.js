@@ -5,6 +5,7 @@ const teacherFeedbackSchema = new mongoose.Schema({
   email: String,
   class: String,                // added these fields
   subject: String,
+  teacherName: String,
   teachingQuality: String,      // will remap 'teaching-quality' in backend
   communication: String,
   engagement: String,

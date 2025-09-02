@@ -4,9 +4,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: 'Book Antiqua', Palatino, serif;
-  /* Unique, professional gradient background */
   background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-  /* Optional: add a subtle pattern overlay */
   background-image:
     linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%),
     url('https://www.transparenttextures.com/patterns/cubes.png');
@@ -88,8 +86,8 @@ a {
 
 /* Header */
 header {
-  background-color: #0d6efd;
-  color: white;
+  background-color: #0d3163;
+  color: rgb(255, 255, 255);
   padding: 1.5rem 2rem;
   display: flex;
   justify-content: space-between;
@@ -103,14 +101,22 @@ header {
 header h1 {
   margin: 0;
   font-size: 2rem;
+  text-align: center;
 }
 
-#hamburger,
+#hamburger {
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
 #toggle-theme {
   background: transparent;
   border: none;
   color: white;
-  font-size: 2rem;
+  font-size: 1rem;
   cursor: pointer;
 }
 
@@ -143,8 +149,8 @@ header h1 {
 
 /* Hero Section */
 .hero {
-  background: linear-gradient(to right, #0d6efd, #084298);
-  color: white;
+  background: linear-gradient(to right, #02152f, #082b5c);
+  color: rgb(255, 255, 255);
   padding: 6rem 2rem;
   text-align: center;
 }
@@ -162,10 +168,10 @@ header h1 {
   margin-bottom: 2rem;
   line-height: 1.6;
 }
-
+  
 .cta-btn {
   background-color: white;
-  color: #0d6efd;
+  color: #12064d;
   padding: 1rem 2rem;
   border-radius: 6px;
   font-size: 1.2rem;
@@ -175,7 +181,7 @@ header h1 {
 }
 
 .cta-btn:hover {
-  background-color: #0d6efd;
+  background-color: #09244c;
   color: white;
 }
 
@@ -194,7 +200,7 @@ header h1 {
 
 #categories.visible {
   opacity: 1;
-  max-height: 2000px; /* Large enough for your content */
+  max-height: 2000px; 
   pointer-events: auto;
   transform: translateY(0);
 }
@@ -207,7 +213,7 @@ header h1 {
 }
 
 .category-card {
-  background-color: white;
+  background-color: rgb(214, 214, 225);
   border: 1px solid #ddd;
   padding: 2rem;
   border-radius: 12px;
@@ -220,7 +226,7 @@ header h1 {
 .category-card h3 {
   margin-bottom: 1rem;
   font-size: 1.5rem;
-  color: #0d6efd;
+  color: #072047;
 }
 
 .category-card p {
@@ -230,7 +236,7 @@ header h1 {
 }
 
 .feedback-btn {
-  background-color: #0d6efd;
+  background-color: #041630;
   color: white;
   border: none;
   padding: 0.8rem 1.5rem;
@@ -241,7 +247,7 @@ header h1 {
 }
 
 .feedback-btn:hover {
-  background-color: #084298;
+  background-color: #5276ad;
 }
 
 /* Testimonials Section */
@@ -254,7 +260,7 @@ header h1 {
 .testimonials h2 {
   font-size: 2.5rem;
   margin-bottom: 2rem;
-  color: #0d6efd;
+  color: #021a3d;
 }
 
 .testimonial-grid {
@@ -276,12 +282,12 @@ header h1 {
 .testimonial-card h4 {
   margin-top: 1rem;
   font-size: 1.2rem;
-  color: #0d6efd;
+  color: #072758;
 }
 
 /* Footer */
 footer {
-  background-color: #0d6efd;
+  background-color: #051f45;
   color: white;
   padding: 2rem;
   text-align: center;
@@ -362,7 +368,7 @@ footer {
 
 /* Fix for Toggle Button Visibility */
 header button {
-  flex-shrink: 0; /* Prevent buttons from shrinking */
+  flex-shrink: 0; 
 }
 
 /* Dark Theme */
@@ -519,7 +525,7 @@ h1, h2, h3, h4 {
   letter-spacing: 1px;
 }
 
-/* Welcome text (e.g., hero section main heading): Use Pacifico for a unique, friendly style */
+/* Welcome text */
 .hero-content h1,
 .welcome-content h1 {
   font-family: 'Montserrat', Arial, sans-serif;
@@ -530,9 +536,9 @@ h1, h2, h3, h4 {
 
 /* Dashboard Styles */
 .dashboard-container {
-  max-width: 1200px; /* Increased width */
+  max-width: 1200px; 
   margin: 2rem auto;
-  background: #fff;
+  background: #bdc6ef;
   border-radius: 16px;
   box-shadow: 0 4px 24px rgba(0,0,0,0.08);
   padding: 2rem 2.5rem;
@@ -542,7 +548,7 @@ h1, h2, h3, h4 {
 .dashboard-container h1 {
   font-size: 2.5rem;
   margin-bottom: 1.5rem;
-  color: #4e73df;
+  color: #000000;
   letter-spacing: 1px;
 }
 
@@ -555,30 +561,31 @@ h1, h2, h3, h4 {
 }
 
 .stat-card {
-  background: #f8f9fc;
+  background: #031446;
   border-radius: 10px;
   box-shadow: 0 2px 8px rgba(78,115,223,0.07);
   padding: 1.5rem 2rem;
   min-width: 180px;
   margin-bottom: 1rem;
+  color: white;
 }
 
 .stat-card span {
   display: block;
   font-size: 2rem;
   font-weight: bold;
-  color: #1cc88a;
+  color: #ffffff;
   margin-top: 0.5rem;
 }
 
 #pieChart {
-  margin: 2rem auto 1rem auto;
+  margin: 10rem auto 10rem auto;
   display: block;
-  max-width: 400px;
+  max-width: 800px;
 }
 
 #pieCharts canvas {
-  max-width: 180px;
+  max-width: 780px;
   max-height: 180px;
 }
 
@@ -589,7 +596,7 @@ h1, h2, h3, h4 {
 }
 
 .recent-table td, .recent-table th {
-  max-width: 300px; /* Increased cell width */
+  max-width: 300px; 
   word-break: break-word;
   white-space: pre-line;
 }

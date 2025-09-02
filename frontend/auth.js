@@ -1,13 +1,3 @@
-// Helper function to get users from localStorage
-function getUsers() {
-  const users = localStorage.getItem('users');
-  return users ? JSON.parse(users) : [];
-}
-
-// Helper function to save users to localStorage
-function saveUsers(users) {
-  localStorage.setItem('users', JSON.stringify(users));
-}
 
 // Sign-Up Form
 const signupForm = document.getElementById('signup-form');
@@ -22,31 +12,40 @@ if (signupForm) {
     const password = document.getElementById('password').value;
     const confirmPassword = document.getElementById('confirm-password').value;
 
-    // Validate passwords match
     if (password !== confirmPassword) {
       signupErrorMessage.textContent = 'Passwords do not match.';
       signupErrorMessage.style.display = 'block';
       return;
     }
 
-    // Get existing users from localStorage
-    const users = getUsers();
+    const data = { name, email, password };
 
-    // Check if email already exists
-    if (users.some((user) => user.email === email)) {
-      signupErrorMessage.textContent = 'Email is already registered.';
-      signupErrorMessage.style.display = 'block';
-      return;
-    }
-
-    // Add new user to the list
-    users.push({ name, email, password });
-    saveUsers(users); // Save updated users to localStorage
-
-    alert('Sign-up successful! You can now log in.');
-    window.location.href = 'login.html';
+    fetch("http://localhost:5000/api/signup", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"  
+      },
+      body: JSON.stringify(data)
+    })
+      .then((res) => {
+        if (!res.ok) {
+          return res.json().then(err => {
+            throw new Error(err.message || "Signup failed");
+          });
+        }
+        return res.json();
+      })
+      .then((result) => {
+        alert("Sign-up successful! You can now log in.");
+        window.location.href = "login.html";
+      })
+      .catch((error) => {
+        signupErrorMessage.textContent = error.message;
+        signupErrorMessage.style.display = "block";
+      });
   });
 }
+
 
 // Login Form
 const loginForm = document.getElementById('login-form');
@@ -59,16 +58,32 @@ if (loginForm) {
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
 
-    // Get existing users from localStorage
-    const users = getUsers();
+    const data = { email, password }
 
-    // Validate credentials
-    const user = users.find((user) => user.email === email && user.password === password);
-    if (user) {
-      window.location.href = 'home.html'; // Redirect to the main page
-    } else {
-      loginErrorMessage.textContent = 'Invalid email or password.';
+    fetch("http://localhost:5000/api/login", {
+      method: 'POST',
+      headers: {
+        'Content-type': 'application/json'
+      },
+      body: JSON.stringify(data)
+    })
+    .then(res => {
+      if(!res.ok) {
+        return res.json().then(err => {
+          throw new Error(err.message || "Login failed");
+        });
+      }
+      return res.json()
+    })
+    .then(data => {
+        console.log(data.message)
+        alert('Logged in successfully')
+        window.location.href = 'home.html';
+    })
+    .catch((err) => {
+      loginErrorMessage.textContent = err.message;
       loginErrorMessage.style.display = 'block';
-    }
+    })
+    
   });
 }

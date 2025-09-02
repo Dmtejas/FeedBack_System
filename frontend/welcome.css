@@ -6,13 +6,13 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: url('https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1500&q=80') no-repeat center center fixed;
+  background: url('./images/image.jpg') no-repeat center center fixed;
   background-size: cover;
   font-family: 'Book Antiqua', Palatino, serif;
 }
 
 .welcome-container {
-  background: linear-gradient(135deg, rgba(255,255,255,0.96) 60%, rgba(240,240,240,0.92) 100%);
+  background: linear-gradient(135deg, rgba(205, 204, 208, 0.96) 60%, rgba(36, 28, 28, 0.92) 100%);
   border-radius: 18px;
   max-width: 800px; /* Increased width */
   width: 100%;
@@ -23,7 +23,6 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  /* Optional: add a subtle border for extra pop */
   border: 1.5px solid rgba(78,115,223,0.10);
   font-family: 'Book Antiqua', Palatino, serif;
 }
@@ -64,6 +63,8 @@ body {
 
 .welcome-buttons .btn:hover {
   background: #375ab7;
+  transition:cubic-bezier(0.075, 0.82, 0.165, 1);
+  width: 100px;
 }
 
 /* Chatbot Styles */

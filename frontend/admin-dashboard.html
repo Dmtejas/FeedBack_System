@@ -21,10 +21,10 @@
       <canvas id="sentimentTrendChart" width="600" height="200"></canvas>
     </div>
   </div>
-  <!-- Chart.js CDN -->
+
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script>
-    // Get token from localStorage
+    
     const token = localStorage.getItem('adminToken');
     if (!token) {
       alert('Not authorized');
@@ -36,7 +36,7 @@
     })
       .then(res => res.json())
       .then(stats => {
-        // Stat cards
+       
         const statsDiv = document.getElementById('stats');
         let statCards = `
           <div class="stat-card">
@@ -52,7 +52,6 @@
             </div>`
           ).join('');
         }
-        // Add sentiment stat card
         statCards += `
           <div class="stat-card">
             <div>Avg Sentiment</div>
@@ -63,7 +62,7 @@
         `;
         statsDiv.innerHTML = statCards;
 
-        // Pie charts for each distribution
+        
         const distKeys = Object.keys(stats.dist);
         const questionLabels = {
           teachingQuality: 'Teaching Quality',
@@ -74,7 +73,7 @@
           satisfaction: 'Satisfaction'
         };
         distKeys.forEach((key, idx) => {
-          if (idx > 2) return; // Only up to 3 pie charts
+          if (idx > 2) return; 
           const dist = stats.dist[key];
           const labels = Object.keys(dist).map(l => l.charAt(0).toUpperCase() + l.slice(1).replace('-', ' '));
           const data = Object.values(dist);
@@ -100,7 +99,6 @@
           });
         });
 
-        // Details: Distribution breakdown and recent feedbacks
         let detailsHTML = distKeys.map((key, idx) => `
           <h3>Distribution for ${questionLabels[key] || key.replace(/([A-Z])/g, ' $1')}</h3>
           <ul style="display:flex;justify-content:center;gap:2rem;list-style:none;padding:0;">
@@ -133,7 +131,6 @@
         `;
         document.getElementById('details').innerHTML = detailsHTML;
 
-        // Sentiment Trend Line Chart
         const trendCtx = document.getElementById('sentimentTrendChart').getContext('2d');
         new Chart(trendCtx, {
           type: 'line',
