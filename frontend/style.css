@@ -579,13 +579,14 @@ h1, h2, h3, h4 {
 }
 
 #pieChart {
-  margin: 10rem auto 10rem auto;
+  margin: 10rem auto 1rem auto;
   display: block;
-  max-width: 800px;
+  max-width: 600px;
 }
 
 #pieCharts canvas {
-  max-width: 780px;
+  
+  max-width: 100px;
   max-height: 180px;
 }
 
